@@ -1,12 +1,28 @@
-<project name="build" desc="Builds My Project">
-	<target name="clean">
-	</target>
+<?xml version="1.0"?>
+	<project name="build" basedir=".">
+
+		<property name="build.dir" value="build"/>
+		<property name="src.dir" value="src"/>
+		
+		<target name="clean">
+			<echo>Clean all class files and directory created during build</echo>
+			<delete>
+				<fileset dir="${build.dir}">
+					<include name="**/*.class"/>
+				</fileset>
+			</delete>
+		</target>
 	
-	<target name="init">
+		<target name="init">
+			<echo>Create all required directory and file during build</echo>
+			<mkdir dir="${build.dir}"/>
+		</target>
 	
-	</target>
-	
-	<target name="buildsrc" depends="clean,init">
-	
-	</target>
-</project>
+		<target name="compile" depends="clean,init" description="Compile source tree java files">
+			<echo>Compile source and create required binary for deployement</echo>
+			<javac destdir="${build.dir}" failonerror="true" includeantruntime="false">
+				<src path="${src.dir}"/>
+				<!-- classpath refid="master-classpath"/ -->
+			</javac>
+		</target>
+	</project>

@@ -3,7 +3,7 @@ class Triangle extends Figure {
 		super(a,b);
 	}
 
-	double area{
+	double area(){
 		System.out.println("Inside Area for Triangle");
 		return dim1 * dim2 /2;
 	}
