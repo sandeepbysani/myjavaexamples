@@ -1,0 +1,12 @@
+<project name="build" desc="Builds My Project">
+	<target name="clean">
+	</target>
+	
+	<target name="init">
+	
+	</target>
+	
+	<target name="buildsrc" depends="clean,init">
+	
+	</target>
+</project>
